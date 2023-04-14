@@ -25,7 +25,7 @@
 </head>
 <body onload="getLocation();">
 	<div class="container">
-		<h5>Bootstrap ve jQuery Konum Bilgisi Test Sayfam</h5>
+		<h5>Bazı Testler</h5>
 		<p id="konum" class="font-weight-light"></p>
 	</div>
 	<!-- <script src="fonksiyon.js"></script> -->
@@ -43,13 +43,13 @@
     var longitude = position.coords.longitude;
     var konumEl = document.getElementById("konum");
     if (konumEl) {
-        konumEl.innerHTML = "Konum: " + latitude + ", " + longitude;
+        konumEl.innerHTML = "Haraketli Konum(1 Saniye): " + latitude + ", " + longitude;
     }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     getLocation();
-    setInterval(getLocation, 4000);
+    setInterval(getLocation, 1000);
 });
 
     </script>
