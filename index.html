@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<title>Konum</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="stil.css"> -->
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-Qg00WFl9r0Xr6rUqNLv1ffTSSKEFFCDCKVyHZ+sVt8KuvG99nWw5RNvbhuKgif9z" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js" integrity="sha512-NWNl2ZLgVBoi6lTcMsHgCQyrZVFnSmcaa3zRv0L3aoGXshwoxkGs3esa9zwQHsChGRL4aLDnJjJJeP6MjPX46Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				alert("Tarayıcınız konum servislerini desteklemiyor.");
+			}
+		}
+
+		function showPosition(position) {
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			document.getElementById("konum").innerHTML = "Konum: " + latitude + ", " + longitude;
+		}
+	</script>
+</head>
+<body onload="getLocation();">
+	<div class="container">
+		<h5>Bootstrap ve jQuery Konum Bilgisi Test Sayfam</h5>
+		<p id="konum" class="font-weight-light"></p>
+	</div>
+	<!-- <script src="fonksiyon.js"></script> -->
+    <script>
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        console.log("Tarayıcınız konum servislerini desteklemiyor.");
+    }
+}
+
+    function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var konumEl = document.getElementById("konum");
+    if (konumEl) {
+        konumEl.innerHTML = "Konum: " + latitude + ", " + longitude;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+    getLocation();
+    setInterval(getLocation, 4000);
+});
+
+    </script>
+</body>
+</html>
